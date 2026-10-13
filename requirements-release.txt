@@ -1,0 +1,9 @@
+# Observed development versions and tested dashboard/test entry points.
+# These top-level pins are not a complete transitive dependency lockfile.
+numpy==2.4.2
+pandas==3.0.0
+lightgbm==4.7.0
+scikit-learn>=1.6,<2
+PyYAML>=6,<7
+pytest==8.4.2
+-r requirements-dashboard.txt

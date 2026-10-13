@@ -1,0 +1,49 @@
+{
+  "created_at_utc": "2026-10-12T20:31:16.418745+00:00",
+  "stage": "validation_replay",
+  "experiment": "E03: past-only horizon-band interval calibration",
+  "source_sha256": "9d37afc6331cd22cfb951e0d3f5ee090980626dcb7d3531faee693285eaf30c3",
+  "interval_predictions_sha256": "6b36ec109840be32eaf93d757102ed42c10e9d1dc8b018b6a6c6127d384bbf60",
+  "e02_run_sha256": "1c5f5ceb63642f4642d9e270906831d7fb368877225823656383d4276d4cb9fc",
+  "config": {
+    "seed": 42,
+    "horizon": 28,
+    "n_windows": 3,
+    "n_series": 500,
+    "history_days": 730,
+    "training_origin_days": 365,
+    "origin_stride": 7,
+    "iterations": 200,
+    "threads": 4,
+    "models": [
+      "seasonal_naive",
+      "mean28",
+      "lightgbm",
+      "lightgbm_l1",
+      "lightgbm_q10",
+      "lightgbm_q90"
+    ]
+  },
+  "nominal_target_coverage": 0.8,
+  "score": "max(lower-y, y-upper); signed score retained",
+  "correction": "max(0, k-th smallest score), k=ceil((n+1)*(1-alpha)); separately by horizon band",
+  "history_policy": "all complete earlier E02 windows with last target date <= evaluation cutoff",
+  "bounds_policy": "max(0, lower-correction), upper+correction; central forecasts unchanged",
+  "calibration_routing": "forecast horizon only; future zero/positive actuals never used for routing",
+  "n_evaluation_observations_per_method": 28000,
+  "evaluation_cutoffs": [
+    "2016-02-28",
+    "2016-03-27"
+  ],
+  "summary_reproduced_within_tolerance": true,
+  "past_only_check": true,
+  "model_refitted": false,
+  "holdout_evaluated": false,
+  "coverage_guarantee": "none; dependent panel/time-series scores and changing fitted base models",
+  "selection_scope": "exploratory retrospective replay; no automatic promotion or new blind test",
+  "versions": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.0"
+  },
+  "elapsed_seconds": 2.659
+}

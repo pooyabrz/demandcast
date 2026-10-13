@@ -1,0 +1,52 @@
+name: DemandCast CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: demandcast-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.12'
+          - os: ubuntu-latest
+            python: '3.13'
+          - os: windows-latest
+            python: '3.13'
+    env:
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
+      STREAMLIT_GLOBAL_DEVELOPMENT_MODE: 'false'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            requirements-release.txt
+            requirements-dashboard.txt
+      - name: Install dependencies and this checkout
+        run: |
+          python -m pip install -r requirements-release.txt -r requirements-publication.txt -e .
+      - name: Check repository and frozen reference summaries
+        run: python scripts/project_preflight.py --mode ci --output reports/release/ci-preflight.json
+      - name: Run all core and addon tests without M5
+        run: python -m pytest -q tests --junitxml=reports/release/test-results.xml

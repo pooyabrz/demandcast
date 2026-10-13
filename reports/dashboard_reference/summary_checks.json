@@ -1,0 +1,17 @@
+{
+  "n_observations_per_method": 28000,
+  "covered_count": 25020,
+  "lower_miss_count": 169,
+  "upper_miss_count": 2811,
+  "all_signed_quantiles_zero": true,
+  "selected_demo_interval": "q10-q90 envelope",
+  "checks": [
+    "evaluation_by_fold.csv: all weighted metrics reconcile",
+    "evaluation_by_predicted_mean.csv: all weighted metrics reconcile",
+    "evaluation_metrics.csv: both methods numerically identical",
+    "evaluation_by_fold.csv: both methods numerically identical",
+    "evaluation_by_predicted_mean.csv: both methods numerically identical",
+    "All 6 signed score quantiles and corrections are zero; ranks and dates agree"
+  ],
+  "scope": "Supplied aggregate tables and receipts only; no new M5 training or independent test"
+}

@@ -1,0 +1,2 @@
+n_observations,nominal_target_coverage,coverage_raw,coverage,mean_width,mean_lower,mean_upper,pinball_q10,pinball_q90,raw_crossing_rate,median_outside_raw_bounds_rate,bounds_adjustment_rate
+42000,0.8,0.8922142857142857,0.8922142857142857,2.976019800323133,0.0753306926991426,3.051350493022276,0.1341643402962946,0.3171134736658852,0.0,0.0,0.0

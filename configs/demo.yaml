@@ -1,0 +1,11 @@
+# Synthetic smoke test. These results are not M5 benchmark results.
+seed: 42
+horizon: 28
+n_windows: 2
+n_series: 8
+history_days: 240
+training_origin_days: 112
+origin_stride: 7
+iterations: 60
+threads: 4
+models: [seasonal_naive, mean28, histgbm, lightgbm]

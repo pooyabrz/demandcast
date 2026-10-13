@@ -1,0 +1,2 @@
+# Plot renderer tested while preparing the publication tooling.
+matplotlib==3.10.8

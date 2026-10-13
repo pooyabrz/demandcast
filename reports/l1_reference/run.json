@@ -1,0 +1,35 @@
+{
+  "created_at_utc": "2026-10-12T16:24:48.180383+00:00",
+  "stage": "validation",
+  "experiment": "only LightGBM objective changes: poisson -> regression_l1",
+  "source_sha256": "9d37afc6331cd22cfb951e0d3f5ee090980626dcb7d3531faee693285eaf30c3",
+  "reference_run_sha256": "1db3583f0f55bd158d80db89cb07bbed1a633fccd94ab043b5b8c28390cf37c3",
+  "config": {
+    "seed": 42,
+    "horizon": 28,
+    "n_windows": 3,
+    "n_series": 500,
+    "history_days": 730,
+    "training_origin_days": 365,
+    "origin_stride": 7,
+    "iterations": 200,
+    "threads": 4,
+    "models": [
+      "seasonal_naive",
+      "mean28",
+      "lightgbm",
+      "lightgbm_l1"
+    ]
+  },
+  "n_series": 500,
+  "observed_days": 730,
+  "control_reproduced_within_tolerance": true,
+  "reproduction_tolerance": {
+    "relative": 1e-06,
+    "absolute": 1e-07
+  },
+  "lightgbm_version": "4.7.0",
+  "elapsed_seconds": 74.691,
+  "holdout_evaluated": false,
+  "guardrails": "Inspect signed bias and positive-sales MAE alongside pooled MAE/WAPE; no business bias threshold has been established"
+}

@@ -1,0 +1,19 @@
+{
+  "source_sha256": "502fe4d34ae3e81c9c7cf3cac73a63e0971378dbbddfedb247cff95596b11bf2",
+  "input_rows": 126000,
+  "paired_observations": 42000,
+  "n_series": 500,
+  "cutoffs": [
+    "2016-01-31",
+    "2016-02-28",
+    "2016-03-27"
+  ],
+  "zero_sales_fraction": 0.5615238095238095,
+  "lgb_series_wins": 219,
+  "lgb_series_losses": 281,
+  "lgb_series_ties": 0,
+  "net_extra_absolute_error": 141.70909467372192,
+  "top50_absolute_error_share": 0.3463821620032511,
+  "scope": "500 sampled M5 product-store series; validation only; no causal claim",
+  "retrospective_grouping_warning": "Actual future zero-sales labels are diagnostic groups, not forecasting inputs or model-routing rules"
+}

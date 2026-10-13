@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "demandcast"
+version = "0.1.0"
+description = "Retail unit-sales forecasting with origin-safe multi-horizon evaluation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<4", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+ml = ["scikit-learn>=1.5,<2", "lightgbm>=4.3,<5", "threadpoolctl>=3,<4"]
+
+[project.scripts]
+demandcast = "demandcast.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

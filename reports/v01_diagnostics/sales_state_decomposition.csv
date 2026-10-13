@@ -1,0 +1,3 @@
+sales_state,n_observations,actual_sales,zero_fraction,mae_lightgbm,mae_mean28,net_extra_absolute_error
+Positive sales,18416,57003.0,0.0,1.5812642180096872,1.6240264658023604,-787.5095553498687
+Zero sales,23584,0.0,1.0,0.6508076338863531,0.6114072501506174,929.2186500235906

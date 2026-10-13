@@ -1,0 +1,40 @@
+{
+  "created_at_utc": "2026-10-12T20:11:31.943757+00:00",
+  "stage": "validation",
+  "experiment": "E02: quantile tails with frozen Poisson and L1 central forecasts",
+  "source_sha256": "9d37afc6331cd22cfb951e0d3f5ee090980626dcb7d3531faee693285eaf30c3",
+  "reference_run_sha256": "82b6472cf65f370b37b6ad126d0e91ee4f84c85c1bc91850d7d7566b171d6529",
+  "config": {
+    "seed": 42,
+    "horizon": 28,
+    "n_windows": 3,
+    "n_series": 500,
+    "history_days": 730,
+    "training_origin_days": 365,
+    "origin_stride": 7,
+    "iterations": 200,
+    "threads": 4,
+    "models": [
+      "seasonal_naive",
+      "mean28",
+      "lightgbm",
+      "lightgbm_l1",
+      "lightgbm_q10",
+      "lightgbm_q90"
+    ]
+  },
+  "quantile_levels": {
+    "lightgbm_q10": 0.1,
+    "lightgbm_q90": 0.9
+  },
+  "nominal_target_coverage": 0.8,
+  "interval_policy": "lower/upper envelope of q10, unchanged L1 median and q90; report raw and adjusted coverage",
+  "calibration": "none; nominal 80% is a target, not verified coverage or a distribution-free guarantee",
+  "inclusive_bounds": true,
+  "n_series": 500,
+  "observed_days": 730,
+  "control_reproduced_within_tolerance": true,
+  "holdout_evaluated": false,
+  "lightgbm_version": "4.7.0",
+  "elapsed_seconds": 141.115
+}

@@ -1,0 +1,2 @@
+method,n_observations,nominal_target_coverage,coverage,coverage_raw,lower_miss_rate,upper_miss_rate,mean_width,interval_score_80,pinball_q10,pinball_q90,raw_crossing_rate,median_outside_raw_bounds_rate,bounds_adjustment_rate
+uncalibrated_envelope,14000,0.8,0.8985,0.8985,0.0,0.1015,2.413853716456849,3.7643075097044556,0.10197142857142856,0.274459322399017,0.0,0.0,0.0

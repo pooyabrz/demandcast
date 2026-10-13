@@ -1,0 +1,11 @@
+# Start here on a 16 GB machine; measure memory before increasing n_series.
+seed: 42
+horizon: 28
+n_windows: 3
+n_series: 500
+history_days: 730
+training_origin_days: 365
+origin_stride: 7
+iterations: 200
+threads: 4
+models: [seasonal_naive, mean28, lightgbm]

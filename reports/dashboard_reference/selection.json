@@ -1,0 +1,9 @@
+{
+  "interval_method": "uncalibrated",
+  "interval_label": "q10-q90 envelope",
+  "calibration_in_demo": false,
+  "median_model": "lightgbm_l1",
+  "mean_model": "lightgbm",
+  "selection_scope": "validation demo only; no independent final-test claim",
+  "reason": "All six signed-score quantiles and applied corrections were zero; identical two-window evaluation metrics."
+}
